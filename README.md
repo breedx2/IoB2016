@@ -5,6 +5,10 @@
 
 A wall of 50 (10x5) multicolor network-addressable buckets.
 
+### Hardware
+
+nodemcu esp8266
+
 ### Network
 
 192.168.16.201 - 250
