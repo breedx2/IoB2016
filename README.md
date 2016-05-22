@@ -5,6 +5,10 @@
 
 A wall of 50 (10x5) multicolor network-addressable buckets.
 
+### Network
+
+192.168.16.201 - 250
+
 ## Indies
 
 20 individual battery-powered multicolor buckets.
