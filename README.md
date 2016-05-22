@@ -13,6 +13,17 @@ nodemcu esp8266
 
 192.168.16.201 - 250
 
+### Examples
+
+sending files "sequences" to nodemcus
+`curl --data-binary @rainbow.lua http://192.168.16.201/upload/rainbow.lua`
+
+activate sequence
+`curl http://192.168.16.201?sequence=rainbow`
+
+change rgb values
+`curl "http://192.168.16.201?r=0&g=0&b=120"`
+
 ## Indies
 
 20 individual battery-powered multicolor buckets.
