@@ -1,5 +1,5 @@
 # IoB2016
-DorkbotPDX Toorcamp 2016 IoB (Internet of Buckets)
+[DorkbotPDX](http://dorkbotpdx.org) and [Ctrl-H](http://pdxhackerspace.org/) [Toorcamp](http://toorcamp.org) 2016 IoB (Internet of Buckets)
 
 ## Wall
 
