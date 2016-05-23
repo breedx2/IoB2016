@@ -29,5 +29,5 @@ Sets all the buckets to the same random color, over and over.
 `rate * times` should be approximately how long the sequence runs (in ms).
 
 ```
-curl http://server:9090/flipper?rate=350&times=100
+curl 'http://server:9090/flipper?rate=350&times=100'
 ```
