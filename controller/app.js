@@ -34,7 +34,9 @@ app.get('/rainbow', function (req, res) {
 });
 
 // flips all buckets to the same random color over and over
+let flipperTimer = null;
 app.get('/flipper', function (req, res) {
+  clearInterval(flipperTimer);
   function once(){
     let r = randColor();
     let g = randColor();
@@ -45,10 +47,11 @@ app.get('/flipper', function (req, res) {
   }
   let times = req.query.times || 1;
   let rate = req.query.rate || 250;
-  let timer = setInterval(() => {
+  flipperTimer = setInterval(() => {
     once();
     if(--times <= 0){
-      clearInterval(timer);
+      clearInterval(flipperTimer);
+      flipperTimer = null;
     }
   }, rate);
   res.send('ok');
