@@ -1,7 +1,7 @@
 # IoB2016
 [DorkbotPDX](http://dorkbotpdx.org) and [Ctrl-H](http://pdxhackerspace.org/) [Toorcamp](http://toorcamp.org) 2016 IoB (Internet of Buckets)
 
-<img src="https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/13217280_1076334432404913_794862734443089774_o.jpg" width="250">
+<img src="https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/13217280_1076334432404913_794862734443089774_o.jpg" width="350">
 
 ## Wall
 
