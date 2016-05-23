@@ -26,8 +26,8 @@ function show()
 end
 
 
-tmr.alarm(0, TIME, 1, function() show() end )
+tmr.alarm(SEQTIMERID, TIME, 1, function() show() end )
 
 print("One WS2812 connected to D1 will changes its color repeatedly")
-print("Stop this by tmr.stop(0)")
+print("Stop this by tmr.stop(SEQTIMERID)")
 show()
