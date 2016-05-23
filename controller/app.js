@@ -18,16 +18,16 @@ app.get('/rgb', function (req, res) {
   let r = req.query.r;
   let g = req.query.g;
   let b = req.query.b;
-  for(let i = START; i <= END; i++){
+  allBuckets(() => {
     rgb_client.send(`192.168.16.${i}`, r, g, b);
-  }
+  });
   res.send('ok');
 });
 
 app.get('/rainbow', function (req, res) {
-  for(let i=START; i <= END; i++){
+  allBuckets(i => {
     rgb_client.send(`192.168.16.${i}`, randColor(), randColor(), randColor());
-  }
+  });
   res.send('ok');
 });
 
@@ -36,9 +36,9 @@ app.get('/flipper', function (req, res) {
     let r = randColor();
     let g = randColor();
     let b = randColor();
-    for(let i = START; i <= END; i++){
+    allBuckets(i => {
       rgb_client.send(`192.168.16.${i}`, r, g, b);
-    }
+    });
   }
   let times = req.query.times || 1;
   let rate = req.query.rate || 250;
@@ -50,6 +50,12 @@ app.get('/flipper', function (req, res) {
   }, rate);
   res.send('ok');
 });
+
+function allBuckets(cb){
+  for(let i = START; i <= END; i++){
+    cb(i);
+  }
+}
 
 function randColor(){
   return Math.round(Math.random() * (255));
