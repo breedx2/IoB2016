@@ -7,7 +7,7 @@ Helps to coordinate sending of mass-bucket commands.
 Send the same rgb values to every bucket.
 
 ```
-curl http://server:9090/rgb?r=255&g=0&b=0
+curl 'http://server:9090/rgb?r=255&g=0&b=0'
 ```
 
 # rainbow
