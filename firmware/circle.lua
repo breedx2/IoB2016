@@ -2,12 +2,16 @@
 -- Created : Zach Archer
 
 LED_PIN    = 1
-TIME       = 30  -- 0.500 second,  2 Hz
+TIME       = 30
 
 bucketid = 0
 
-radius = 0
-tri = 0
+bx = 0
+by = 0
+phase = 0
+px = 0
+py = 0
+wave = 0
 brt = 0
 
 if file.open("config.lua", "r") then
@@ -16,29 +20,28 @@ if file.open("config.lua", "r") then
 
 	ssid, pwd, bucketid = string.match(settings, "ssid={(.+)}:pwd={(.+)}:bucketid={(.+)}")
 	bx = ((bucketid-200) % 10) - 5
-	by = math.floor( (bucketid-200) / 10 ) - 5
+	by = math.floor( (bucketid-200) / 10 ) - 2
+end
 
-	radius = math.sqrt( bx*bx + by*by )
+function tri( v )
+	out = math.abs(v) % 2.0
+	if out > 1.0 then
+		out = 2.0 - out
+	end
+	return out
 end
 
 function show()
-	radius = radius - 0.013
-	while radius < 0 do
-		radius = radius + 2.0
-	end
-	while radius > 2.0 do
-		radius = radius - 2.0
-	end
+	phase = phase - 0.013
+	px = (tri(phase/2+0.5) * 4) + bx
+	py = (tri(phase+0.5) * 2) + by
 
-	tri = radius
-	if tri > 1.0 then
-		tri = 2.0 - tri
-	end
+	wave = tri( math.sqrt( px*px + py*py ) / 2 )
 
 	-- Lazy gamma correction
-	tri = tri * tri
+	wave = wave * wave
 
-	brt = math.floor(tri*255)
+	brt = math.floor(wave*255)
 
   COLOR = string.char(brt,brt,0):rep(72)
   ws2812.write(LED_PIN, COLOR)
