@@ -14,6 +14,7 @@ var server = app.listen(HTTP_PORT, function () {
   console.log("server started");
 });
 
+// puts a single rgb on each bucket
 app.get('/rgb', function (req, res) {
   let r = req.query.r;
   let g = req.query.g;
@@ -24,6 +25,7 @@ app.get('/rgb', function (req, res) {
   res.send('ok');
 });
 
+// puts a random color on each bucket
 app.get('/rainbow', function (req, res) {
   allBuckets(i => {
     rgb_client.send(`192.168.16.${i}`, randColor(), randColor(), randColor());
@@ -31,6 +33,7 @@ app.get('/rainbow', function (req, res) {
   res.send('ok');
 });
 
+// flips all buckets to the same random color over and over
 app.get('/flipper', function (req, res) {
   function once(){
     let r = randColor();
