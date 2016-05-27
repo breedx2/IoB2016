@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Correct syntax:
+# curl --data-binary @rainbow.lua http://192.168.16.201/upload/rainbow.lua &
+
+for ((i=201; i<=250; i++)); do
+	curl --data-binary @../firmware/${1}.lua http://192.168.16.$i/upload/${1}.lua &
+done

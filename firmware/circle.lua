@@ -9,8 +9,6 @@ bucketid = 0
 bx = 0
 by = 0
 phase = 0
-px = 0
-py = 0
 wave = 0
 brt = 0
 
@@ -19,24 +17,24 @@ if file.open("config.lua", "r") then
 	file.close()
 
 	ssid, pwd, bucketid = string.match(settings, "ssid={(.+)}:pwd={(.+)}:bucketid={(.+)}")
-	bx = ((bucketid-200) % 10) - 5
+	bx = (((bucketid-200) % 10) - 5) * 0.667
 	by = math.floor( (bucketid-200) / 10 ) - 2
 end
 
 function tri( v )
 	out = math.abs(v) % 2.0
-	if out > 1.0 then
-		out = 2.0 - out
+	if( out < 0.3 ) then
+		out = out * (1.0 / 0.3)
+	else
+		out = (2.0 - out) * (1.0 / 1.7)
 	end
 	return out
 end
 
 function show()
-	phase = phase - 0.013
-	px = (tri(phase/2+0.5) * 4) + bx
-	py = (tri(phase+0.5) * 2) + by
+	phase = phase + 0.013
 
-	wave = tri( math.sqrt( px*px + py*py ) / 2 )
+	wave = tri( math.sqrt( bx*bx + by*by ) / 3.5 - phase )
 
 	-- Lazy gamma correction
 	wave = wave * wave
