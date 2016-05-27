@@ -25,7 +25,7 @@ if file.open("config.lua", "r") then
 	glyph = img[ bid - 200 ]
 
 	if glyph == 0 then
-		br = 25
+		br = 27
 	end
 end
 

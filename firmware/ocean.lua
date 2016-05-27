@@ -30,6 +30,4 @@ end
 
 tmr.alarm(SEQTIMERID, OCEAN_TIME, 1, function() show() end )
 
-print("One WS2812 connected to D1 will changes its color repeatedly")
-print("Stop this by tmr.stop(SEQTIMERID)")
 show()

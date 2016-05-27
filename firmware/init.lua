@@ -11,16 +11,16 @@ if file.open("config.lua", "r") then
   c.gateway = "192.168.16.1"
 
   wifi.sta.setip(c)
-  
+
   wifi.setmode(wifi.STATION)
   wifi.sta.config(ssid, pwd)
 
-tmr.alarm(1,1000, 1, function() 
-  if wifi.sta.getip()==nil 
-    then print(" Waiting for IP address!") 
-  else print("New IP address is "..wifi.sta.getip()) 
-    tmr.stop(1) 
-  end 
+tmr.alarm(1,1000, 1, function()
+  if wifi.sta.getip()==nil
+    then print(" Waiting for IP address!")
+  else print("New IP address is "..wifi.sta.getip())
+    tmr.stop(1)
+  end
 end)
 
 --function x2c(x) return string.char(tonumber(x, 16)) end
@@ -62,7 +62,7 @@ function start()
       else
 
         q = string.match(payload, "GET (.+) HTTP")
-      
+
         if q ~= "/favicon.ico" then
           if q ~= "/" then
             p = {}
@@ -78,7 +78,7 @@ function start()
               print('setting RGB('..p.r..','..p.g..','..p.b..')')
 
               tmr.stop(SEQTIMERID)
-          
+
               -- Set the lights!
               ws2812.write(pin, string.char( tonumber(p.g), tonumber(p.r), tonumber(p.b) ):rep(72))
             end
