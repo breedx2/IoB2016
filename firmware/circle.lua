@@ -39,7 +39,8 @@ function show()
 	-- Lazy gamma correction
 	wave = wave * wave
 
-	brt = math.floor(wave*255)
+	-- Low power draw plz
+	brt = math.floor(wave*66)
 
   COLOR = string.char(brt,brt,0):rep(72)
   ws2812.write(LED_PIN, COLOR)

@@ -4,7 +4,7 @@
 -- Created : Zach Archer
 
 LED_PIN    = 1
-TRON_TIME  = 120
+TIME  = 120
 
 bid = 200
 pos = 225
@@ -31,18 +31,16 @@ function show()
 		pos = pos - 50
 	end
 
-	brt = math.max( 0, brt-25 )
+	brt = math.max( 0, brt-8 )
 
 	if math.abs( pos - bid ) < 0.5 then
-		brt = 255
+		brt = 128
 	end
 
-	COLOR = string.char(brt, brt, brt):rep(72)
+	COLOR = string.char(brt, 0, 0):rep(72)
 	ws2812.write(LED_PIN, COLOR)
 end
 
-tmr.alarm(SEQTIMERID, TRON_TIME, 1, function() show() end )
+tmr.alarm(SEQTIMERID, TIME, 1, function() show() end )
 
-print("One WS2812 connected to D1 will changes its color repeatedly")
-print("Stop this by tmr.stop(SEQTIMERID)")
 show()

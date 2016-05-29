@@ -9,7 +9,7 @@ bid = 0
 glyph = 0
 ph = 0
 i = 0
-br = 255
+br = 100
 
 rs = {1,1,0,0,0,1,1}
 gs = {0,1,1,1,0,0,0}
@@ -25,7 +25,7 @@ if file.open("config.lua", "r") then
 	glyph = img[ bid - 200 ]
 
 	if glyph == 0 then
-		br = 27
+		br = 20
 	end
 end
 
