@@ -27,7 +27,7 @@ end
 function show()
 	fr=fr+dfr
 	dfr=dfr+0.01
-	if fr>=(FQ*11) then
+	if fr>=(FQ*10) then
 		fr=0
 		dfr=1
 	end
@@ -35,7 +35,7 @@ function show()
 	h=(fr-(byi*FQ))
 
 	t=h*(11/FQ)+3
-	t=math.max(3,math.min(14,top))
+	t=math.max(3,math.min(14,t))
 
 	rnd = math.random(50)
 	if brt >= t then
@@ -62,8 +62,7 @@ function show()
 	BODY = string.char(40*lum,255*lum,0):rep(15-pxoff)
 
 	COLOR = (DARK..HEAD..BODY..BODY..HEAD..DARK):rep(2)
-
-	ws2812.write(LED_PIN,COLOR)
+	ws2812.write(LED_PIN, COLOR)
 end
 
 tmr.alarm(SEQTIMERID,TIME,1,function() show() end)
