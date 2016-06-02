@@ -13,23 +13,23 @@ i = 0
 function show()
   rnd = math.random(50)
 
-  if brt >= 14 then
+  if brt >= 15 then
     dir = -1
-  elseif brt <= 1 then
+  elseif brt <= 0 then
     dir = 1
-  elseif rnd <= 2 then
+  elseif rnd <= 1 then
     dir = dir * -1
   end
 
   brt = math.floor( brt + dir )
 
-	pxoff = 18 - brt
+	pxoff = 15 - brt
 
-	DARK = string.char(0,0,0):rep(pxoff)
-	DARKTWO = string.char(0,0,0):rep(15-pxoff)
+	HI = string.char(0,0,0):rep(pxoff)
 	LIGHT = string.char(255,255,255):rep(3)
+	LO = string.char(0,0,0):rep(15-pxoff)
 
-	COLOR = DARK .. LIGHT .. DARKTWO .. DARKTWO .. LIGHT .. DARK .. DARK .. LIGHT .. DARKTWO .. DARKTWO .. LIGHT .. DARK
+	COLOR = (HI..LIGHT..LO..LO..LIGHT..HI):rep(2)
 
 	ws2812.write(LED_PIN, COLOR)
 end
