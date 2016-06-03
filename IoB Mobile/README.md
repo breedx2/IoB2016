@@ -1,16 +1,21 @@
 # IoB Mobile
 
-These Buckets all have their own Access Points!
+**These Buckets all have their own Access Points!**
 
-Bucket IDs: 1-20, This should be written on each bucket
-Access Point Names: Bucket1 - Bucket 20
-Access Point Password: toorcamp
-Subnets: 10.1.10.1 through 10.20.10.1, based on Bucket ID (10.BucketID.10.1)
-Netmask: 255.255.0.0
-HTTP Server for GET Requests: 10.Bucket ID.10.1
+*Bucket IDs:* 1-20, This should be written on each bucket
+
+*Access Point Names:* Bucket1 - Bucket 20
+
+*Access Point Password:* toorcamp
+
+*Subnets:* 10.1.10.1 through 10.20.10.1, based on Bucket ID (10.BucketID.10.1)
+
+*Netmask:* 255.255.0.0
+
+*HTTP Server* for GET Requests: 10.Bucket ID.10.1
 
 
-URI Examples:
+**URI Examples:**
 
 Sequence for Bucket ID #1:
 http://10.1.10.1/?sequence=fire
